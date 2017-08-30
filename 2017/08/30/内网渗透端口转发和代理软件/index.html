@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>内网渗透所需要的端口转发和代理软件的使用 | r1b00t’Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="r1b00t|lcx|htran">
+<meta name="keywords" content="渗透,内网,fpipe,lcx,代理,htran,SOCKS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内网渗透所需要的端口转发和代理软件的使用">
+<meta property="og:url" content="https://r1b00t.github.io/2017/08/30/内网渗透端口转发和代理软件/index.html">
+<meta property="og:site_name" content="r1b00t’Blog">
+<meta property="og:description" content="r1b00t|lcx|htran">
+<meta property="og:updated_time" content="2017-08-30T12:41:28.079Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内网渗透所需要的端口转发和代理软件的使用">
+<meta name="twitter:description" content="r1b00t|lcx|htran">
+  
+    <link rel="alternative" href="/atom.xml" title="r1b00t’Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img src="/img/avatar.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">r1b00t</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">r1b00t</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/categories/ctf">CTF</a></li>
+                        
+                            <li><a  href="/categories/Web渗透">Web渗透</a></li>
+                        
+                            <li><a  href="/categories/nw">内网渗透</a></li>
+                        
+                            <li><a  href="/categories/vuln">漏洞</a></li>
+                        
+                            <li><a  href="/categories/kali">Kali</a></li>
+                        
+                            <li><a  href="/categories/linux">Linux</a></li>
+                        
+                            <li><a  href="/categories/python">Python</a></li>
+                        
+                            <li><a  href="/about">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://r1b00t.github.io/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/SOCKS/" style="font-size: 10px;">SOCKS</a> <a href="/tags/Windows/" style="font-size: 12.5px;">Windows</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/fpipe/" style="font-size: 12.5px;">fpipe</a> <a href="/tags/htran/" style="font-size: 10px;">htran</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/kali-Hydra/" style="font-size: 10px;">kali Hydra</a> <a href="/tags/lcx/" style="font-size: 12.5px;">lcx</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/metasploit/" style="font-size: 10px;">metasploit</a> <a href="/tags/metinfo/" style="font-size: 10px;">metinfo</a> <a href="/tags/msfvenom/" style="font-size: 10px;">msfvenom</a> <a href="/tags/nc/" style="font-size: 12.5px;">nc</a> <a href="/tags/portscan/" style="font-size: 10px;">portscan</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/reduh/" style="font-size: 10px;">reduh</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sql注入/" style="font-size: 12.5px;">sql注入</a> <a href="/tags/zip/" style="font-size: 10px;">zip</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/内网/" style="font-size: 17.5px;">内网</a> <a href="/tags/反弹shell/" style="font-size: 10px;">反弹shell</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/渗透/" style="font-size: 20px;">渗透</a> <a href="/tags/漏洞/" style="font-size: 15px;">漏洞</a> <a href="/tags/爆破/" style="font-size: 10px;">爆破</a> <a href="/tags/端口扫描/" style="font-size: 10px;">端口扫描</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://r1b00t.github.io">github</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.shiyanbar.com">实验吧</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.ichunqiu.com">i春秋</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.freebuf.com">FreeBuf</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.leavesongs.com/">phith0n</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱好枪击游戏，爱好渗透</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">r1b00t</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/avatar.png" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">r1b00t</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">r1b00t</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/ctf">CTF</a></li>
+                
+                    <li><a href="/categories/Web渗透">Web渗透</a></li>
+                
+                    <li><a href="/categories/nw">内网渗透</a></li>
+                
+                    <li><a href="/categories/vuln">漏洞</a></li>
+                
+                    <li><a href="/categories/kali">Kali</a></li>
+                
+                    <li><a href="/categories/linux">Linux</a></li>
+                
+                    <li><a href="/categories/python">Python</a></li>
+                
+                    <li><a href="/about">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://r1b00t.github.io/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-内网渗透端口转发和代理软件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/30/内网渗透端口转发和代理软件/" class="article-date">
+      <time datetime="2017-08-30T12:39:44.870Z" itemprop="datePublished">2017-08-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      内网渗透所需要的端口转发和代理软件的使用
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web渗透/">Web渗透</a><a class="article-category-link" href="/categories/Web渗透/nw/">nw</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SOCKS/">SOCKS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fpipe/">fpipe</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/htran/">htran</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lcx/">lcx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代理/">代理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网/">内网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <hr>
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">服务端      htran.exe -s -bind 8888</div><div class="line">客户端      SocksCap:SOCKS Version 5 服务端IP:8888</div></pre></td></tr></table></figure>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">客户端      htran.exe -s -listen 1234 8888</div><div class="line">服务端      htran.exe -s -connect 客户端IP 1234</div><div class="line">客户端      SocksCap:SOCKS Version 5 127.0.0.1:8888</div></pre></td></tr></table></figure>
+<h2 id="正向端口转发"><a href="#正向端口转发" class="headerlink" title="正向端口转发"></a>正向端口转发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">服务端      htran.exe -p -tran 8888 127.0.0.1 3389</div><div class="line">客户端      RDP 服务端IP:8888</div></pre></td></tr></table></figure>
+<h2 id="反向端口转发"><a href="#反向端口转发" class="headerlink" title="反向端口转发"></a>反向端口转发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">客户端      htran.exe -p -listen 1234 8888</div><div class="line">服务端      htran.exe -p -slave 客户端IP 1234 127.0.0.1 3389</div><div class="line">客户端      RDP 127.0.0.1:8888</div></pre></td></tr></table></figure>
+<h2 id="lcx"><a href="#lcx" class="headerlink" title="lcx"></a>lcx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">客户端      lcx.exe -listen 1234 8888</div><div class="line">服务端      lcx.exe -slave 客户端IP 1234 服务端IP 3389</div><div class="line">客户端      RDP 127.0.0.1:8888</div></pre></td></tr></table></figure>
+<h2 id="FPipe"><a href="#FPipe" class="headerlink" title="FPipe"></a>FPipe</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">fpipe -l 监听端口 -s 重定向源端口 -r 重定向目的端口 重定向目的IP</div><div class="line">fpipe.exe -l 80 -r 3389 127.0.0.1</div></pre></td></tr></table></figure>
+<h2 id="rinetd"><a href="#rinetd" class="headerlink" title="rinetd"></a>rinetd</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">rinetd.exe -c rinetd.conf</div><div class="line">         rinetd.conf</div><div class="line">0.0.0.0 1234 127.0.0.1 3389</div><div class="line">监听IP 监听端口 重定向目标IP 重定向目标端口</div></pre></td></tr></table></figure>
+<h2 id="httptunnel"><a href="#httptunnel" class="headerlink" title="httptunnel"></a>httptunnel</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">客户端      htc -F 8888 服务端IP:80</div><div class="line">服务端      hts -F localhost:3389 80</div><div class="line">客户端      127.0.0.1:8888</div></pre></td></tr></table></figure>
+<h2 id="reDuh"><a href="#reDuh" class="headerlink" title="reDuh"></a>reDuh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">java -jar reDuhClient.jar http://website/reDuh.aspx</div><div class="line"> </div><div class="line">nc -vv localhost 1010</div><div class="line">[createTunnel]1234:127.0.0.1:3389</div><div class="line"> </div><div class="line">RDP 127.0.0.1:1234</div></pre></td></tr></table></figure>
+<h2 id="各种系统cmd关闭防火墙命令"><a href="#各种系统cmd关闭防火墙命令" class="headerlink" title="各种系统cmd关闭防火墙命令"></a>各种系统cmd关闭防火墙命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Winxp / win 2003</div><div class="line">关闭/启动防火墙</div><div class="line">netsh firewall set opmode DISABLE/ENABLE</div><div class="line"></div><div class="line">---------Win7/2008--------------</div><div class="line">关闭/启动防火墙</div><div class="line">netsh advfirewall set allprofiles state off/on</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">添加转发</div><div class="line">netsh interface portproxy add v4tov4 转发端口 目标IP 目标端口</div><div class="line">或者</div><div class="line">netsh interface portproxy add v4tov4 listenport=转发端口 listenaddress=本机IP connectport=目标端口 connectaddress=目标IP</div><div class="line"></div><div class="line">查看转发</div><div class="line">netsh interface portproxy show all</div><div class="line"></div><div class="line">删除转发</div><div class="line">netsh interface portproxy delete v4tov4 listenport=转发端口</div><div class="line">或者</div><div class="line">netsh interface portproxy delete v4tov4 listenport=转发端口 listenaddress=本机IP</div></pre></td></tr></table></figure>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux:"></a>Linux:</h1><h2 id="lcxForLinux"><a href="#lcxForLinux" class="headerlink" title="lcxForLinux"></a>lcxForLinux</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">客户端      lcx.exe -listen 1234 8888</div><div class="line">服务端      ./lcx -slave 客户端IP 1234 服务端IP 22</div><div class="line">客户端      SSH 127.0.0.1:8888</div></pre></td></tr></table></figure>
+<h2 id="SSH-Tunnel"><a href="#SSH-Tunnel" class="headerlink" title="SSH Tunnel"></a>SSH Tunnel</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">服务端      ssh -C -f -N -g -R 1234:127.0.0.1:22 客户端用户名@客户端IP -p 22</div><div class="line">客户端      ssh 服务端用户名@127.0.0.1 -p 1234</div></pre></td></tr></table></figure>
+<h2 id="reDuh-1"><a href="#reDuh-1" class="headerlink" title="reDuh"></a>reDuh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">java -jar reDuhClient.jar http://website/reDuh.php</div><div class="line"> </div><div class="line">nc -vv localhost 1010</div><div class="line">[createTunnel]1234:127.0.0.1:22</div><div class="line"> </div><div class="line">SSH 127.0.0.1:1234</div><div class="line"> </div><div class="line">[killReDuh]</div></pre></td></tr></table></figure>
+<h2 id="rinetd-1"><a href="#rinetd-1" class="headerlink" title="rinetd"></a>rinetd</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./rinetd -c rinetd.conf</div><div class="line">         rinetd.conf</div><div class="line">0.0.0.0 1234 127.0.0.1 22</div><div class="line">监听IP 监听端口 重定向目标IP 重定向目标端口</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/08/30/内网渗透端口转发和代理软件/">内网渗透所需要的端口转发和代理软件的使用</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 r1b00t 的个人博客">r1b00t</a></p>
+        <p><span>发布时间:</span>2017年08月30日 - 20时39分</p>
+        <p><span>最后更新:</span>2017年08月30日 - 20时41分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/30/内网渗透端口转发和代理软件/" title="内网渗透所需要的端口转发和代理软件的使用">https://r1b00t.github.io/2017/08/30/内网渗透端口转发和代理软件/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://r1b00t.github.io/2017/08/30/内网渗透端口转发和代理软件/　　作者: r1b00t" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/08/30/FPipe端口转发使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          FPipe进行端口重定向使用方法
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/08/30/Metinfo5.3.17前台sql注入/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Fck编辑器漏洞</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows"><span class="toc-number">1.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#正向代理"><span class="toc-number">1.1.</span> <span class="toc-text">正向代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反向代理"><span class="toc-number">1.2.</span> <span class="toc-text">反向代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正向端口转发"><span class="toc-number">1.3.</span> <span class="toc-text">正向端口转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反向端口转发"><span class="toc-number">1.4.</span> <span class="toc-text">反向端口转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lcx"><span class="toc-number">1.5.</span> <span class="toc-text">lcx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FPipe"><span class="toc-number">1.6.</span> <span class="toc-text">FPipe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rinetd"><span class="toc-number">1.7.</span> <span class="toc-text">rinetd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#httptunnel"><span class="toc-number">1.8.</span> <span class="toc-text">httptunnel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reDuh"><span class="toc-number">1.9.</span> <span class="toc-text">reDuh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#各种系统cmd关闭防火墙命令"><span class="toc-number">1.10.</span> <span class="toc-text">各种系统cmd关闭防火墙命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux"><span class="toc-number">2.</span> <span class="toc-text">Linux:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#lcxForLinux"><span class="toc-number">2.1.</span> <span class="toc-text">lcxForLinux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSH-Tunnel"><span class="toc-number">2.2.</span> <span class="toc-text">SSH Tunnel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reDuh-1"><span class="toc-number">2.3.</span> <span class="toc-text">reDuh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rinetd-1"><span class="toc-number">2.4.</span> <span class="toc-text">rinetd</span></a></li></ol></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/08/30/FPipe端口转发使用/" title="上一篇: FPipe进行端口重定向使用方法">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/08/30/Metinfo5.3.17前台sql注入/" title="下一篇: Fck编辑器漏洞">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/FPipe端口转发使用/">FPipe进行端口重定向使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/内网渗透端口转发和代理软件/">内网渗透所需要的端口转发和代理软件的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/Metinfo5.3.17前台sql注入/">Fck编辑器漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/sql注入笔记/">Sql注入笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/python编写简单端口扫描/">python编写简单多线程指定端口扫描工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/python编写简单zip爆破工具/">python编写简单zip爆破工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/linux下各种反弹shell/">linux下各种反弹shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/rudh+lcx+nc内网渗透笔记/">reduh+lcx+nc内网渗透笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Windows内网渗透常用命令/">Windows内网渗透提权命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Hydra/">Hydra使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/ThinkPHP2.1命令执行漏洞/">ThinkPHP2.1命令执行漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/linux学习笔记/">Linux学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/msfvenom生成shell/">msfvenom生成shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/FCK编辑器漏洞/">Fck编辑器漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Redis未授权访问漏洞/">Redis未授权访问漏洞getshell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/各种中间件漏洞/">各种中间件漏洞笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/web安全/">Web安全靶机实战</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/ctf线下加固/">CTF线下加固</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 r1b00t
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 4;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

